@@ -3,24 +3,10 @@
 <div class="row">
   <div class="span12">
     <!-- _SearchForm Partial Here -->
-    @Html.Partial("_SearchForm")
   </div>
 </div>
 <div class="row">
   <div class="span12">
-    <h2>Search Results for "@Model.SearchedFor"</h2>
-    @if (Model.SearchResults.Any())
-    {
-      foreach (var mmi in Model.SearchResults)
-      {
-        @Html.Partial("_MovieMediaItem", mmi)
-      }
-    }
-    else
-    {
-      <div class="well well-large text-center large-font">
-        Sorry, we didn't find your movie. Try searching again!
-      </div>
-    }
+    <h2>Search Results for ""</h2>
   </div>
 </div>

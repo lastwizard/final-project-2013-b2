@@ -5,11 +5,7 @@
     <img class="media-object" alt="movie poster" src="@Model.ProfilePosterUrl">
   </div>
   <div class="media-body">
-    <h2 class="media-heading"><a href="@Url.RouteUrl("View Movie", new {Model.Id})">@Model.Title @(Model.Year == null ? string.Empty : "(" + Model.Year + ")")</a></h2>
-    @if (!string.IsNullOrEmpty(Model.Synopsis))
-    {
-      <p>@Model.Synopsis</p>
-    }
+    <h2 class="media-heading"></h2>
     @if (Model.Cast != null && Model.Cast.Any())
     {
       <h4>Cast</h4>

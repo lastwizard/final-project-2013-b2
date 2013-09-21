@@ -25,14 +25,5 @@ namespace SequelShack.Web.Controllers
       _mappingEngine = mappingEngine;
       _webSecurity = webSecurity;
     }
-
-    [ActionName("Profile")]
-    public ActionResult AccountProfile()
-    {
-      var currentUser = _webSecurity.GetCurrentUser();
-      var model = _mappingEngine.Map<AccountProfileModel>(currentUser);
-
-      return View(model);
-    }
   }
 }

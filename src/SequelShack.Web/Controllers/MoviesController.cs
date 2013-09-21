@@ -21,29 +21,5 @@ namespace SequelShack.Web.Controllers
     {
       _mappingEngine = mappingEngine;
     }
-
-    public ActionResult Show(string id)
-    {
-      var movie = NhSession.Get<Movie>(id);
-      var model = _mappingEngine.Map<MovieDisplayModel>(movie);
-      return View(model);
-    }
-
-    [Authorize, ValidateAntiForgeryToken]
-    public ActionResult SaveSequel(SequelForm model)
-    {
-      if (!ModelState.IsValid)
-      {
-        var movie = NhSession.Get<Movie>(model.MovieId);
-        var movieModel = _mappingEngine.Map<MovieDisplayModel>(movie);
-        return View("Show", movieModel);
-      }
-
-      // For the second argument to Map pass the following: opts => opts.ConstructServicesUsing(DependencyResolver.Current.GetService)
-      var sequel = _mappingEngine.Map<Sequel>(model, opts => opts.ConstructServicesUsing(DependencyResolver.Current.GetService));
-      NhSession.Save(sequel);
-
-      return RedirectToAction("Show", new {Id = model.MovieId});
-    }
   }
 }

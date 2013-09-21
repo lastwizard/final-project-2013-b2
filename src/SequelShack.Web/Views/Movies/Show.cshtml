@@ -1,12 +1,8 @@
 ﻿@model MovieDisplayModel
-@{
-  ViewBag.Title = Model.Title;
-}
 
 <div class="row">
   <div class="span12">
     <!-- Search -->
-    @Html.Partial("_SearchForm")
   </div>
 </div>
 <h2 class="no-top-margin">@Model.Title (@Model.Year)</h2>
@@ -15,13 +11,9 @@
     @if (User.Identity.IsAuthenticated)
     {
       <div id="sequel-edit-container" class="well well-large text-center">
-        @using (Html.BeginForm("SaveSequel", "Movies", FormMethod.Post, new {@class = "no-bottom-margin"}))
+        @<!-- Form goes here -->
         {
           @Html.AntiForgeryToken()
-          @Html.ValidationSummary("Oops! Please fix the following:")
-          @Html.Hidden("MovieId", Model.Id)
-          @Html.TextBox("Title", string.Empty, new {placeholder = "Sequel Title", @class = "sequel-title"})
-          @Html.TextArea("Content", string.Empty, new {placeholder = "What happens next?", @class = "sequel-content", rows = 5})
           <div class="text-right">
             <button id="save-sequel" class="btn btn-large btn-success"><i class="icon-ok"></i> That's a Wrap</button>
           </div>
@@ -36,7 +28,7 @@
         {
           <div class="sequel">
             <div class="sequel-title">
-              <strong>@sequel.Title</strong> by <strong>@sequel.CreatedByUsername</strong> on <strong>@sequel.CreatedAt</strong>
+              
             </div>
             <div class="sequel-content">
               @Html.Raw(Html.Encode(sequel.Content).Replace("\n", "<br/>"))
@@ -55,12 +47,11 @@
   </div>
   <div class="span4">
     <!-- Movie Details -->
-    <img src="@Model.DetailedPosterUrl" alt="poster" />
+    
 
     <h4>Synopsis</h4>
     <div class="well well-small">
       <!-- Synopsis -->
-      @Model.Synopsis
     </div>
 
     <h4>Cast</h4>

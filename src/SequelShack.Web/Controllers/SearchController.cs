@@ -27,16 +27,5 @@ namespace SequelShack.Web.Controllers
       _mappingEngine = mappingEngine;
       _queryExecutor = queryExecutor;
     }
-
-    public ActionResult Index(string q)
-    {
-      var movies = _queryExecutor.ExecuteQuery(new MoviesWithTitleLike(q));
-      var model = new SearchResultsModel
-        {
-          SearchedFor = q,
-          SearchResults = _mappingEngine.Map<IEnumerable<MovieMediaItemModel>>(movies),
-        };
-      return View(model);
-    }
   }
 }
