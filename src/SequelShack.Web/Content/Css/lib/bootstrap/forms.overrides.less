@@ -1,0 +1,32 @@
+﻿.form-actions
+{
+  text-align: right;
+}
+
+.validation-summary-valid
+{
+  display: none;
+}
+
+.validation-summary-errors
+{
+  .border-radius(4px);
+  background-color: @errorBackground;
+  border-color: @errorBorder;
+  color: @errorText;
+  margin-bottom: @baseLineHeight;
+  padding: 8px 14px 8px 14px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  text-align: left;
+
+  > span
+  {
+    font-weight: bold;
+  }
+
+  ul
+  {
+    list-style: none;
+    margin: 5px 5px 0;
+  }
+}

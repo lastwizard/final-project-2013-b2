@@ -1,0 +1,34 @@
+﻿@model JoinForm
+@{
+  ViewBag.Title = "Join The Sequel Shack";
+}
+
+<div class="row">
+  <div class="span4">
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
+
+      <fieldset>
+        <legend>Register</legend>
+        @Html.ValidationSummary("Please correct the following errors:")
+
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new {@class = "span4"})
+
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new {@class = "span4"})
+
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new {@class = "span4"})
+
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "span4"})
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </fieldset>
+    }
+  </div>
+</div>

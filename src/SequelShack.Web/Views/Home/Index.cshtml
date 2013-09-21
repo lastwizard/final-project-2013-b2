@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MovieMediaItemModel>
+@{
+  ViewBag.Title = "Main";
+}
+
+<div class="row">
+  <div class="span12">
+    <!-- _SearchForm Partial Here -->
+    @Html.Partial("_SearchForm")
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <div class="well">
+      <h3 class="no-top-margin">New in Theatres</h3>
+      <!-- _MovieMediaItem Partial Loop Here -->
+      @foreach (var mmi in Model)
+      {
+        @Html.Partial("_MovieMediaItem", mmi)
+      }
+    </div>
+  </div>
+</div>

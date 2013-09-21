@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Actor]
+(
+  [Id] NVARCHAR(75) NOT NULL,
+  [Version] INT NOT NULL,
+  [Name] NVARCHAR(256) NOT NULL,
+  CONSTRAINT [PK_Actor] PRIMARY KEY ([Id])
+)

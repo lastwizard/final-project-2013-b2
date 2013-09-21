@@ -1,0 +1,12 @@
+﻿input.sequel-title {
+  height: 40px;
+  line-height: 34px;
+  font-size: 28px;
+  width: 557px;
+}
+textarea.sequel-content {
+  width: 557px;
+}
+.sequel-preview {
+  height: 200px;
+}

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[Sequel]
+(
+  [Id] INT IDENTITY NOT NULL,
+  [MovieId] NVARCHAR(75) NOT NULL,
+  [Title] NVARCHAR(256) NOT NULL,
+  [Content] NVARCHAR(MAX) NOT NULL,
+  [CreatedById] INT NOT NULL,
+  [CreatedAt] DATETIME2 NOT NULL,
+  CONSTRAINT [PK_Sequel] PRIMARY KEY ([Id]),
+  CONSTRAINT [FK_Sequel_Movie] FOREIGN KEY ([MovieId]) REFERENCES [Movie] ([Id]) ON DELETE CASCADE
+)
+GO
+
+CREATE INDEX [IX_MovieId] ON [Sequel] ([MovieId])
+GO

@@ -1,0 +1,19 @@
+﻿@model MovieMediaItemModel
+
+<div class="media">
+  <div class="pull-left">
+    <img class="media-object" alt="movie poster" src="@Model.ProfilePosterUrl">
+  </div>
+  <div class="media-body">
+    <h2 class="media-heading"><a href="@Url.RouteUrl("View Movie", new {Model.Id})">@Model.Title @(Model.Year == null ? string.Empty : "(" + Model.Year + ")")</a></h2>
+    @if (!string.IsNullOrEmpty(Model.Synopsis))
+    {
+      <p>@Model.Synopsis</p>
+    }
+    @if (Model.Cast != null && Model.Cast.Any())
+    {
+      <h4>Cast</h4>
+      <p>@Html.Raw(string.Join("<br/>", Model.Cast.Select(c => Html.Encode(c))))</p>
+    }
+  </div>
+</div>
